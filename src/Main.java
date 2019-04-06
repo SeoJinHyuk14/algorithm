@@ -232,4 +232,23 @@ public class Main {
 
         return dataset;
     }
+
+
+    //binarySearch. 없을 시, 작은값 마지막 인덱스 반환
+    private static int binarySearch(int[] arr, int search) {
+        int size = arr.length, start = 0, end = size - 1;
+
+        while (true) {
+            int mid = (start + end) / 2;
+            if (arr[mid] == search) {
+                return mid;
+            } else if(start == end) {
+                return start;   // 작은값 마지막 인덱스
+            } else if (arr[mid] > search) {
+                end = mid - 1;
+            } else {
+                start = mid + 1;
+            }
+        }
+    }
 }
